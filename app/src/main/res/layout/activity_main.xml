@@ -7,31 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--<RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/test"
-            android:background="@drawable/checkbox"/>
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/test_test_test_test"
-            android:background="@drawable/checkbox"/>
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/t"
-            android:background="@drawable/checkbox"/>
-
-    </RadioGroup>-->
-
     <com.alexandre.bubblecheckbox.ui.BubbleRadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
