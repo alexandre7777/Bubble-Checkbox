@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        custom:duration="1000">
+        custom:duration="1000"
+        custom:background="@drawable/checked">
 
     </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
 
@@ -25,7 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         custom:orientation="vertical"
-        custom:duration="300">
+        custom:duration="300"
+        custom:background="@color/colorAccent">
 
     </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
 

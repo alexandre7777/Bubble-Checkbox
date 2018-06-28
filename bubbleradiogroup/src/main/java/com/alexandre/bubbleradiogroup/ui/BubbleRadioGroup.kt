@@ -28,9 +28,8 @@ class BubbleRadioGroup : CoordinatorLayout {
 
         try {
             duration = a.getInt(R.styleable.BubbleCheckBox_duration, DEFAULT_DURATION).toLong()
-            val orientation = a.getInt(R.styleable.BubbleCheckBox_orientation, DEFAULT_ORIENTATION)
-            bubble_radio_group.orientation = orientation
-
+            bubble_radio_group.orientation = a.getInt(R.styleable.BubbleCheckBox_orientation, DEFAULT_ORIENTATION)
+            bubble_background.background = a.getDrawable(R.styleable.BubbleCheckBox_background)
         } finally {
             a.recycle();
         }

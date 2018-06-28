@@ -6,6 +6,6 @@
             <enum name="horizontal" value="0"/>
             <enum name="vertical" value="1"/>
         </attr>
-
+        <attr name="background" format="reference" />
     </declare-styleable>
 </resources>
