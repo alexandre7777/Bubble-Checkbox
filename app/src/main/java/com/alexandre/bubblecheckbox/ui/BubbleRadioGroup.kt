@@ -11,15 +11,25 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 
-
-
-
 class BubbleRadioGroup : CoordinatorLayout {
 
-    private val DURATION = 1000.toLong()
+    private val DEFAULT_DURATION = 100
+    private var duration = DEFAULT_DURATION.toLong()
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    {
+        val a = context.theme.obtainStyledAttributes(
+                attrs,
+                R.styleable.BubbleCheckBox,
+                0, 0)
+
+        try {
+            duration = a.getInt(R.styleable.BubbleCheckBox_duration, DEFAULT_DURATION).toLong();
+        } finally {
+            a.recycle();
+        }
+    }
 
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -42,7 +52,7 @@ class BubbleRadioGroup : CoordinatorLayout {
             val child2 = bubble_radio_group.getChildAt(u)
             val radioButton = child2 as RadioButton
             if(radioButton.isChecked) {
-                animateButton(radioButton, DURATION)
+                animateButton(radioButton, duration)
             }
         }
     }
