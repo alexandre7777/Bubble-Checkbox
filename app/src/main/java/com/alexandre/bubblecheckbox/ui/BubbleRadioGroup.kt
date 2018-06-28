@@ -3,10 +3,8 @@ package com.alexandre.bubblecheckbox.ui
 import android.content.Context
 import android.support.design.widget.CoordinatorLayout
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import com.alexandre.bubblecheckbox.R
 import kotlinx.android.synthetic.main.bubble_radio_group.view.*
 import android.animation.AnimatorSet
@@ -29,7 +27,6 @@ class BubbleRadioGroup : CoordinatorLayout {
 
         bubble_radio_group.setOnCheckedChangeListener { buttonView, isChecked ->
             updateSelected()
-
         }
     }
 
@@ -41,28 +38,11 @@ class BubbleRadioGroup : CoordinatorLayout {
     }
 
     private fun updateSelected() {
-
-        for (i in 0 until childCount) {
-            val child = getChildAt(i)
-            Log.i("tag", R.id.bubble_radio_group.toString())
-
-
-
-            if(child.id == R.id.bubble_radio_group)
-            {
-                val radioGroup = child as RadioGroup
-                for (u in 0 until radioGroup.childCount) {
-                    val child2 = radioGroup.getChildAt(u)
-                    val radioButton = child2 as RadioButton
-                    Log.i("tag", String.format("2   %s %s %s %s", child2.x.toString(), child2.y.toString(), child2.width.toString(), child2.height.toString()))
-
-                    Log.i("tag", String.format("2   %s %s", radioButton.text, radioButton.isChecked))
-
-                    if(radioButton.isChecked)
-                    {
-                        animateButton(radioButton, DURATION)
-                    }
-                }
+        for (u in 0 until bubble_radio_group.childCount) {
+            val child2 = bubble_radio_group.getChildAt(u)
+            val radioButton = child2 as RadioButton
+            if(radioButton.isChecked) {
+                animateButton(radioButton, DURATION)
             }
         }
     }
