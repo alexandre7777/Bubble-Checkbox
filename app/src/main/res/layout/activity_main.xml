@@ -9,15 +9,15 @@
     tools:context=".MainActivity"
     tools:ignore="ResAuto">
 
-    <com.alexandre.bubblecheckbox.ui.BubbleRadioGroup
+    <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         custom:duration="1000">
 
-    </com.alexandre.bubblecheckbox.ui.BubbleRadioGroup>
+    </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
 
-    <com.alexandre.bubblecheckbox.ui.BubbleRadioGroup
+    <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -27,6 +27,6 @@
         custom:orientation="vertical"
         custom:duration="300">
 
-    </com.alexandre.bubblecheckbox.ui.BubbleRadioGroup>
+    </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
 
 </android.support.constraint.ConstraintLayout>

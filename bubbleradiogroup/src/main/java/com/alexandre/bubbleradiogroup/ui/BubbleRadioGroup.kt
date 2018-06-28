@@ -1,11 +1,11 @@
-package com.alexandre.bubblecheckbox.ui
+package com.alexandre.bubbleradiogroup.ui
 
 import android.content.Context
 import android.support.design.widget.CoordinatorLayout
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RadioButton
-import com.alexandre.bubblecheckbox.R
+import com.alexandre.bubbleradiogroup.R
 import kotlinx.android.synthetic.main.bubble_radio_group.view.*
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
