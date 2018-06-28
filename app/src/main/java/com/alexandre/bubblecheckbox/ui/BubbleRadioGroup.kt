@@ -10,10 +10,12 @@ import kotlinx.android.synthetic.main.bubble_radio_group.view.*
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.widget.LinearLayout
 
 class BubbleRadioGroup : CoordinatorLayout {
 
     private val DEFAULT_DURATION = 100
+    private val DEFAULT_ORIENTATION = LinearLayout.HORIZONTAL
     private var duration = DEFAULT_DURATION.toLong()
 
     constructor(context: Context) : this(context, null)
@@ -25,7 +27,10 @@ class BubbleRadioGroup : CoordinatorLayout {
                 0, 0)
 
         try {
-            duration = a.getInt(R.styleable.BubbleCheckBox_duration, DEFAULT_DURATION).toLong();
+            duration = a.getInt(R.styleable.BubbleCheckBox_duration, DEFAULT_DURATION).toLong()
+            val orientation = a.getInt(R.styleable.BubbleCheckBox_orientation, DEFAULT_ORIENTATION)
+            bubble_radio_group.orientation = orientation
+
         } finally {
             a.recycle();
         }
