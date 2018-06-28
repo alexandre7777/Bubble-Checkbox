@@ -11,7 +11,6 @@ import com.alexandre.bubblecheckbox.R
 import kotlinx.android.synthetic.main.bubble_radio_group.view.*
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.animation.Animator
 import android.animation.ValueAnimator
 
 
@@ -19,8 +18,7 @@ import android.animation.ValueAnimator
 
 class BubbleRadioGroup : CoordinatorLayout {
 
-    private var lock = false
-    private val DURATION = 100.toLong()
+    private val DURATION = 1000.toLong()
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -62,58 +60,52 @@ class BubbleRadioGroup : CoordinatorLayout {
 
                     if(radioButton.isChecked)
                     {
-                        if(!lock) {
-                            lock = true
-                            val animX = ObjectAnimator.ofFloat(bubble_background, "x", radioButton.x)
-                            val animY = ObjectAnimator.ofFloat(bubble_background, "y", radioButton.y)
-                            //val animScaleX = ObjectAnimator.ofFloat(bubble_background, "scaleX", radioButton.width.toFloat())
-                            val animSetXY = AnimatorSet()
-                            animSetXY.duration = DURATION
-                            animSetXY.addListener(object : Animator.AnimatorListener {
-                                override fun onAnimationStart(animation: Animator) {
-                                    // Do nothing.
-                                }
-
-                                override fun onAnimationEnd(animation: Animator) {
-                                    lock = false
-                                }
-
-                                override fun onAnimationCancel(animation: Animator) {
-
-                                }
-
-                                override fun onAnimationRepeat(animation: Animator) {
-                                    // Do nothing.
-                                }
-                            })
-                            animSetXY.playTogether(animX, animY)
-                            animSetXY.start()
-
-
-                            val anim = ValueAnimator.ofInt(bubble_background.getMeasuredWidth(), radioButton.width)
-                            anim.addUpdateListener { valueAnimator ->
-                                val `val` = valueAnimator.animatedValue as Int
-                                val layoutParams = bubble_background.getLayoutParams()
-                                layoutParams.width = `val`
-                                bubble_background.setLayoutParams(layoutParams)
-                            }
-                            anim.duration = DURATION
-                            anim.start()
-
-
-                            val animHeight = ValueAnimator.ofInt(bubble_background.measuredHeight, radioButton.height)
-                            animHeight.addUpdateListener { valueAnimator ->
-                                val `val` = valueAnimator.animatedValue as Int
-                                val layoutParams = bubble_background.getLayoutParams()
-                                layoutParams.height = `val`
-                                bubble_background.setLayoutParams(layoutParams)
-                            }
-                            animHeight.duration = DURATION
-                            animHeight.start()
-                        }
+                        animateButton(radioButton, DURATION)
                     }
                 }
             }
         }
+    }
+
+    private fun animateButton(radioButton : RadioButton, duration : Long){
+        animatePosition(radioButton, duration)
+        animateWidth(radioButton, duration)
+        animateHeight(radioButton, duration)
+    }
+
+
+    private fun animatePosition(radioButton : RadioButton, duration : Long){
+        val animX = ObjectAnimator.ofFloat(bubble_background, "x", radioButton.x)
+        val animY = ObjectAnimator.ofFloat(bubble_background, "y", radioButton.y)
+        val animSetXY = AnimatorSet()
+        animSetXY.duration = duration
+        animSetXY.playTogether(animX, animY)
+        animSetXY.start()
+    }
+
+    private fun animateWidth(radioButton : RadioButton, duration : Long)
+    {
+        val anim = ValueAnimator.ofInt(bubble_background.measuredWidth, radioButton.width)
+        anim.addUpdateListener { valueAnimator ->
+            val animatedValue = valueAnimator.animatedValue as Int
+            val layoutParams = bubble_background.layoutParams
+            layoutParams.width = animatedValue
+            bubble_background.layoutParams = layoutParams
+        }
+        anim.duration = duration
+        anim.start()
+    }
+
+    private fun animateHeight(radioButton : RadioButton, duration : Long)
+    {
+        val animHeight = ValueAnimator.ofInt(bubble_background.measuredHeight, radioButton.height)
+        animHeight.addUpdateListener { valueAnimator ->
+            val animatedValue = valueAnimator.animatedValue as Int
+            val layoutParams = bubble_background.layoutParams
+            layoutParams.height = animatedValue
+            bubble_background.layoutParams = layoutParams
+        }
+        animHeight.duration = duration
+        animHeight.start()
     }
 }
