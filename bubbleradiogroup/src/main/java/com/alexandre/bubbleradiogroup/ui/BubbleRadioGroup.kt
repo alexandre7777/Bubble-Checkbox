@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.bubble_radio_group.view.*
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 
 class BubbleRadioGroup : CoordinatorLayout {
@@ -36,6 +38,9 @@ class BubbleRadioGroup : CoordinatorLayout {
     }
 
     init {
+
+
+
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.bubble_radio_group, this, true)
 
@@ -44,8 +49,32 @@ class BubbleRadioGroup : CoordinatorLayout {
         }
     }
 
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+
+
+        //TODO might to costly
+        val viewsToChange : MutableList<View> = mutableListOf<View>()
+
+        for (i in 0 until childCount) {
+            val child = getChildAt(i)
+
+            if (child!= null && !(child.id == R.id.bubble_radio_group || child.id == R.id.bubble_background)) {
+                viewsToChange.add(child)
+            }
+        }
+
+        for(view in viewsToChange)
+        {
+            (rootView as CoordinatorLayout).removeView(view)
+            bubble_radio_group.addView(view)
+        }
+    }
+
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         super.onLayout(changed, l, t, r, b)
+        Log.d("TAG", "onLayout")
+
 
         if(changed)
             updateSelected()

@@ -16,8 +16,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <include layout="@layout/radio"/>
-
     </RadioGroup>
 
 </merge>
