@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- res/drawable/expand_collapse.xml -->
-<transition xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/unchecked"/>
-    <item android:drawable="@drawable/checked"/>
-</transition>
