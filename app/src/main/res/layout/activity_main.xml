@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res/com.alexandre.bubblecheckbox"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="ResAuto">
+
+    <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        custom:duration="1000"
+        custom:background="@drawable/checked">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test"
+            android:padding="20dp" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_test_test_test"
+            android:padding="20dp"/>
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/t"
+            android:padding="20dp"/>
+
+    </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
+
+    <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:orientation="vertical"
+        custom:duration="300"
+        custom:background="@color/colorAccent">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test"
+            android:padding="20dp" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_test_test_test"
+            android:padding="20dp"/>
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/t"
+            android:padding="20dp"/>
+
+    </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
+
+</android.support.constraint.ConstraintLayout>
