@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         custom:duration="1000"
-        custom:background="@drawable/round_green_background">
+        custom:background="@drawable/round_green_background"
+        custom:animation="classic">
 
         <android.support.v7.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
@@ -53,7 +54,8 @@
         android:layout_height="wrap_content"
         custom:orientation="vertical"
         custom:duration="300"
-        custom:background="@color/colorAccent">
+        custom:background="@color/colorAccent"
+        custom:animation="none">
 
         <android.support.v7.widget.AppCompatRadioButton
             android:layout_width="match_parent"
@@ -88,7 +90,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         custom:background="@drawable/bottom_black_line"
         custom:duration="50"
-        custom:orientation="horizontal">
+        custom:orientation="horizontal"
+        custom:animation="classic">
 
         <android.support.v7.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
