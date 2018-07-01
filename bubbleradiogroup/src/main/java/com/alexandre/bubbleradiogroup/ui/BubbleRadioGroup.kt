@@ -18,6 +18,13 @@ class BubbleRadioGroup : CoordinatorLayout {
     private val DEFAULT_DURATION = 100
     private val DEFAULT_ORIENTATION = LinearLayout.HORIZONTAL
     private var duration = DEFAULT_DURATION.toLong()
+    private val DEFAULT_ANIMATION_TYPE = 0
+    private var animationType = DEFAULT_ANIMATION_TYPE
+
+    private enum class AnimationType(val value: Int) {
+        NONE(0),
+        CLASSIC(1)
+    }
 
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -31,6 +38,7 @@ class BubbleRadioGroup : CoordinatorLayout {
             duration = a.getInt(R.styleable.BubbleCheckBox_duration, DEFAULT_DURATION).toLong()
             bubble_radio_group.orientation = a.getInt(R.styleable.BubbleCheckBox_orientation, DEFAULT_ORIENTATION)
             bubble_background.background = a.getDrawable(R.styleable.BubbleCheckBox_background)
+            animationType = a.getInt(R.styleable.BubbleCheckBox_animation, DEFAULT_ANIMATION_TYPE)
         } finally {
             a.recycle();
         }
@@ -87,9 +95,25 @@ class BubbleRadioGroup : CoordinatorLayout {
             val child2 = bubble_radio_group.getChildAt(u)
             val radioButton = child2 as RadioButton
             if(radioButton.isChecked) {
-                animateButton(radioButton, duration)
+
+                if(animationType == AnimationType.CLASSIC.value)
+                {
+                    animateButton(radioButton, duration)
+                }
+                else
+                {
+                    moveButton(radioButton)
+                }
             }
         }
+    }
+
+    private fun moveButton(radioButton : RadioButton) {
+        bubble_background.x = radioButton.x
+        bubble_background.y = radioButton.y
+        bubble_background.layoutParams.width = radioButton.width
+        bubble_background.layoutParams.height = radioButton.height
+        bubble_background.requestLayout()
     }
 
     /**
