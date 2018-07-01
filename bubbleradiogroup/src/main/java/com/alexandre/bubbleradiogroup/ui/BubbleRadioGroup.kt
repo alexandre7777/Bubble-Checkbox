@@ -95,8 +95,14 @@ class BubbleRadioGroup : CoordinatorLayout {
             val child2 = bubble_radio_group.getChildAt(u)
             val radioButton = child2 as RadioButton
             if(radioButton.isChecked) {
-
-                if(animationType == AnimationType.CLASSIC.value)
+                if(bubble_background.layoutParams.width == 0 &&
+                        bubble_background.layoutParams.height == 0 &&
+                        bubble_background.x == 0.0f &&
+                        bubble_background.y == 0.0f)
+                {
+                    moveButton(radioButton)
+                }
+                else if(animationType == AnimationType.CLASSIC.value)
                 {
                     animateButton(radioButton, duration)
                 }
