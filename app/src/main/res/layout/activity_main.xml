@@ -12,6 +12,7 @@
     android:background="@android:color/background_light">
 
     <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
+        android:id="@+id/first_radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -46,6 +47,7 @@
     </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
 
     <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
+        android:id="@+id/second_radio_group"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

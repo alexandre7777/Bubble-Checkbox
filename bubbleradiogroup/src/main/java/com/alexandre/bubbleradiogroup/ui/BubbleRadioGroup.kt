@@ -12,6 +12,7 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.RadioGroup
 
 class BubbleRadioGroup : CoordinatorLayout {
 
@@ -20,6 +21,7 @@ class BubbleRadioGroup : CoordinatorLayout {
     private var duration = DEFAULT_DURATION.toLong()
     private val DEFAULT_ANIMATION_TYPE = 0
     private var animationType = DEFAULT_ANIMATION_TYPE
+    private var listener: ((RadioGroup, Int) -> Unit)? = null
 
     private enum class AnimationType(val value: Int) {
         NONE(0),
@@ -50,6 +52,7 @@ class BubbleRadioGroup : CoordinatorLayout {
 
         bubble_radio_group.setOnCheckedChangeListener { buttonView, isChecked ->
             updateSelected()
+            listener?.invoke(buttonView, isChecked)
         }
     }
 
@@ -95,8 +98,14 @@ class BubbleRadioGroup : CoordinatorLayout {
             val child2 = bubble_radio_group.getChildAt(u)
             val radioButton = child2 as RadioButton
             if(radioButton.isChecked) {
-
-                if(animationType == AnimationType.CLASSIC.value)
+                if(bubble_background.layoutParams.width == 0 &&
+                        bubble_background.layoutParams.height == 0 &&
+                        bubble_background.x == 0.0f &&
+                        bubble_background.y == 0.0f)
+                {
+                    moveButton(radioButton)
+                }
+                else if(animationType == AnimationType.CLASSIC.value)
                 {
                     animateButton(radioButton, duration)
                 }
@@ -167,5 +176,12 @@ class BubbleRadioGroup : CoordinatorLayout {
         }
         animHeight.duration = duration
         animHeight.start()
+    }
+
+    /**
+     * callback for knowing which button has benn checked
+     */
+    fun setOnCheckedChangeListener(_listener: (RadioGroup, Int) -> Unit) {
+        listener = _listener
     }
 }
