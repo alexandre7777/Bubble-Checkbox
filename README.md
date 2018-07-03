@@ -47,7 +47,7 @@ Custom parameters could to passed :
 
 In order to detect which radiobutton has been selected you may create a listener
 ```
-first_radio_group.setOnCheckedChangeListener { buttonView, isChecked ->
+firstRadioGroup.setOnCheckedChangeListener { buttonView, isChecked ->
     Log.d("example", "buttonView : " + buttonView.id + "isChecked : " + isChecked)
 }
 ```
