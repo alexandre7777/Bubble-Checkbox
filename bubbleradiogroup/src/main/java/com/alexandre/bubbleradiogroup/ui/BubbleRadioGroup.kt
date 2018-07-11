@@ -11,6 +11,8 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.View
+import android.view.animation.BounceInterpolator
+import android.view.animation.DecelerateInterpolator
 import android.widget.LinearLayout
 import android.widget.RadioGroup
 
@@ -25,7 +27,9 @@ class BubbleRadioGroup : CoordinatorLayout {
 
     private enum class AnimationType(val value: Int) {
         NONE(0),
-        CLASSIC(1)
+        CLASSIC(1),
+        BOUNCE(2),
+        DECELERATE(3)
     }
 
     constructor(context: Context) : this(context, null)
@@ -105,7 +109,9 @@ class BubbleRadioGroup : CoordinatorLayout {
                 {
                     moveButton(radioButton)
                 }
-                else if(animationType == AnimationType.CLASSIC.value)
+                else if(animationType == AnimationType.CLASSIC.value
+                    || animationType == AnimationType.BOUNCE.value
+                    || animationType == AnimationType.DECELERATE.value)
                 {
                     animateButton(radioButton, duration)
                 }
@@ -142,6 +148,14 @@ class BubbleRadioGroup : CoordinatorLayout {
         val animY = ObjectAnimator.ofFloat(bubble_background, "y", radioButton.y)
         val animSetXY = AnimatorSet()
         animSetXY.duration = duration
+        if(animationType == AnimationType.BOUNCE.value)
+        {
+            animSetXY.interpolator = BounceInterpolator()
+        }
+        else if(animationType == AnimationType.DECELERATE.value)
+        {
+            animSetXY.interpolator = DecelerateInterpolator()
+        }
         animSetXY.playTogether(animX, animY)
         animSetXY.start()
     }
