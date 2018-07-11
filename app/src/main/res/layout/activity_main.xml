@@ -12,42 +12,123 @@
     android:background="@android:color/background_light">
 
     <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
-        android:id="@+id/first_radio_group"
+        android:id="@+id/firstRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        custom:duration="1000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        custom:animation="classic"
         custom:background="@drawable/round_green_background"
-        custom:animation="classic">
+        custom:duration="1000">
 
         <android.support.v7.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/test"
+            android:button="@null"
             android:padding="10dp"
-            android:button="@null"/>
+            android:text="@string/test" />
 
         <android.support.v7.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/test_test_test_test"
+            android:button="@null"
             android:padding="10dp"
-            android:button="@null"/>
+            android:text="@string/test_test_test_test" />
 
         <android.support.v7.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/t"
-            android:paddingLeft="18dp"
+            android:button="@null"
             android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
             android:paddingRight="18dp"
             android:paddingTop="10dp"
-            android:button="@null"/>
+            android:text="@string/t" />
 
     </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
 
     <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
-        android:id="@+id/second_radio_group"
+        android:id="@+id/bubbleRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstRadioGroup"
+        custom:animation="bounce"
+        custom:background="@drawable/round_blue_background"
+        custom:duration="1000">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/test" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/test_test_test_test" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="10dp"
+            android:text="@string/t" />
+
+    </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
+
+    <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bubbleRadioGroup"
+        custom:animation="decelerate"
+        custom:background="@drawable/round_orange_background"
+        custom:duration="1000">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/test" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:padding="10dp"
+            android:text="@string/test_test_test_test" />
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:paddingBottom="10dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="10dp"
+            android:text="@string/t" />
+
+    </com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup>
+
+    <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
+        android:id="@+id/secondRadioGroup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

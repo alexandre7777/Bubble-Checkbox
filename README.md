@@ -1,6 +1,6 @@
 # Bubble-Checkbox
 
-This library will display a drawable under a radiogroup, the drawable will be placed under the checked radiobutton.
+This library will display a drawable under a radiogroup, the drawable will be placed under the checked radiobutton and animated when the checked is changed.
 
 <img width="200" alt="example" src="example.gif"/>
 
@@ -38,12 +38,12 @@ In your layout create a BubbleRadioGroup as shown below :
 
 Custom parameters could to passed :
 
-| Name 		 	| Type 						| Exampe 						| Description 															|
-| ------------- | -------------------------	| ----------------------------- | --------------------------------------------------------------------- |
-| background  	| Drawable  				| @drawable/bottom_black_line 	| Drawable display under the radio button 								|
-| duration  	| Int  						| 50 							| Animation time in milliseconds 										|
-| orientation 	|  horizontal or vertical 	| horizontal 					| Layout orientation 													|
-| animation 	| none or classic 			| classic 						| Type of the animation none -> no animation, classic -> move animation |
+| Name 		 	| Type 										| Exampe 						| Description 															|
+| ------------- | -----------------------------------------	| ----------------------------- | --------------------------------------------------------------------- |
+| background  	| Drawable  								| @drawable/bottom_black_line 	| Drawable display under the radio button 								|
+| duration  	| Int  										| 50 							| Animation time in milliseconds 										|
+| orientation 	| horizontal or vertical 					| horizontal 					| Layout orientation 													|
+| animation 	| none or classic or bounce or decelerate	| classic 						| Type of the animation none -> no animation, classic -> move animation, bounce and decelerate animation |
 
 In order to detect which radiobutton has been selected you may create a listener
 ```
