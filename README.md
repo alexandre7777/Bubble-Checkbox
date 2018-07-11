@@ -2,7 +2,7 @@
 
 This library will display a drawable under a radiogroup, the drawable will be placed under the checked radiobutton and animated when the checked is changed.
 
-<img width="200" alt="example" src="example.gif"/>
+<img width="200" alt="example" src="example2.gif"/>
 
 ## Usage
 
