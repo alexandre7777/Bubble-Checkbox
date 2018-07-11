@@ -12,11 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        first_radio_group.setOnCheckedChangeListener { buttonView, isChecked ->
+        firstRadioGroup.setOnCheckedChangeListener { buttonView, isChecked ->
             Log.d("example", "buttonView : " + buttonView.id + "isChecked : " + isChecked)
         }
 
-        second_radio_group.setOnCheckedChangeListener { buttonView, isChecked ->
+        secondRadioGroup.setOnCheckedChangeListener { buttonView, isChecked ->
             Log.d("example", "buttonView : " + buttonView.id + "isChecked : " + isChecked)
         }
     }
