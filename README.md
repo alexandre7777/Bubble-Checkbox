@@ -6,7 +6,21 @@ This library will display a drawable under a radiogroup, the drawable will be pl
 
 ## Usage
 
-In your layout create a BubbleRadioGroup as shown below :
+Import the lib :
+
+```
+dependencies {
+    implementation 'com.alexandre.bubblecheckbox:bubbleradiogroup:0.2.0'
+}
+```
+
+In your layout root element add :
+
+```
+xmlns:custom="http://schemas.android.com/apk/res/[your.package.name]"
+```
+
+Tehn create a BubbleRadioGroup as shown below :
 
 ```
 <com.alexandre.bubbleradiogroup.ui.BubbleRadioGroup
