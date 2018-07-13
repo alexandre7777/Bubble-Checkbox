@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "org.jetbrains.dokka"
 
 
 android {
@@ -27,6 +28,11 @@ android {
 
 }
 
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/javadoc"
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -39,3 +45,30 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+ext {
+    bintrayRepo = 'bubblecheckbox'
+    bintrayName = 'com.alexandre.bubblecheckbox'
+
+    publishedGroupId = 'com.alexandre.bubblecheckbox'
+    libraryName = 'bubbleradiogroup'
+    artifact = 'bubbleradiogroup'
+
+    libraryDescription = 'This library will display a drawable under a radiogroup, the drawable will be placed under the checked radiobutton.'
+
+    siteUrl = 'https://github.com/alexandre7777/Bubble-Checkbox'
+    gitUrl = 'https://github.com/alexandre7777/Bubble-Checkbox.git'
+
+    libraryVersion = '0.2.0'
+
+    developerId = 'alexandre7777'
+    developerName = 'alexandre7777'
+    developerEmail = 'alexandre.genet7@gmail.com'
+
+    licenseName = 'The MIT License'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+
+apply from: 'installv1.gradle'
+apply from: 'bintrayv1.gradle'
