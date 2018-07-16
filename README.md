@@ -65,3 +65,5 @@ firstRadioGroup.setOnCheckedChangeListener { buttonView, isChecked ->
     Log.d("example", "buttonView : " + buttonView.id + "isChecked : " + isChecked)
 }
 ```
+
+Full examples are available in the file [MainActivity.kt](/app/src/main/java/com/alexandre/bubblecheckbox/MainActivity.kt)
